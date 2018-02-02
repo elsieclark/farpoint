@@ -1,0 +1,32 @@
+{
+  "name": "farpoint",
+  "version": "0.0.1",
+  "description": "Testing for real-time collaboration",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willdavidc/farpoint.git"
+  },
+  "author": "Will Clark",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/willdavidc/farpoint/issues"
+  },
+  "homepage": "https://github.com/willdavidc/farpoint#readme",
+  "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
+    "compression": "^1.7.1",
+    "create-react-class": "^15.6.3",
+    "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "nconf": "^0.8.5",
+    "pico-router": "^2.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "vitreum": "^4.10.1"
+  }
+}
