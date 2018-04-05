@@ -1,19 +1,14 @@
-const _            = require('lodash');
-const createClass  = require('create-react-class');
-const createRouter = require('pico-router').createRouter;
-const Link         = require('pico-router').Link;
-const React        = require('react');
+const React       = require('react');
+const createClass = require('create-react-class');
+const _           = require('lodash/core');
+const config      = require('shared/config');
+const PicoRouter  = require('pico-router');
 
-const GamePage   = require('./gamepage/gamepage.jsx');
-const FourOhFour = require('./fourohfour/fourohfour.jsx');
+const {TopBar, LowBar} = require('shared/components');
 
-const TopBar   = require('../shared/topbar/topbar.jsx');
-const LowBar   = require('../shared/lowbar/lowbar.jsx');
-
-const Router = createRouter({
-    '/': <GamePage />,
-    '/*': <FourOhFour />
-});
+const Pages = {
+	Home : require('./gamepage/gamepage.jsx'),
+};
 
 const navBarLinks = [
     {
@@ -27,18 +22,26 @@ const navBarLinks = [
 ];
 
 const Main = createClass({
-    getDefaultProps: function() {
-        return {
-            url: '/'
-        };
-    },
-    render: function() {
-        return <div className='main'>
+	getDefaultProps : function(){
+		return {
+			url    : '',
+			config : {}
+		};
+	},
+	componentWillMount : function(){
+		config.set(this.props.config);
+		this.Router = PicoRouter.createRouter({
+			'/' : <Pages.Home />,
+			'*' : <div>Not Found</div>
+		});
+	},
+	render : function(){
+		return <div className='main'>
             <TopBar pages={navBarLinks} />
-            <Router defaultUrl={this.props.url} className='router' />
+			<this.Router defaultUrl={this.props.url} />
             <LowBar />
-        </div>;
-    }
+		</div>;
+	}
 });
 
 module.exports = Main;

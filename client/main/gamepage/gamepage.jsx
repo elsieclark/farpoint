@@ -1,8 +1,7 @@
-const _           = require('lodash');
+const _           = require('lodash/core');
 const createClass = require('create-react-class');
 const React       = require('react');
-const PIXI        = require('pixi.js');
-
+let PIXI = {};
 
 const GamePage = createClass({
     getDefaultProps: function() {
@@ -13,23 +12,17 @@ const GamePage = createClass({
 
     getInitialState: function() {
         return {
-            ctx: {},
         };
     },
 
     componentDidMount: function() {
-        this.setState({
-            ctx: this.refs['canvas'].getContext('2d'),
-        });
+        PIXI = require('pixi.js');
     },
 
     clickTest: function() {
         console.log('Click!');
-        /*let ctx = this.state.ctx;
-        ctx.fillStyle = "#FF0000";
-        ctx.fillRect(0,0,150,75);*/
 
-        let type = "WebGL"
+        let type = "WebGL";
         if(!PIXI.utils.isWebGLSupported()){
             type = "canvas"
         }
@@ -39,7 +32,6 @@ const GamePage = createClass({
 
     render: function() {
         return <div className='gamepage'>
-            <canvas className='gamecanvas' ref='canvas' onClick={this.clickTest}/>
         </div>;
     }
 });

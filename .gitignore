@@ -2,4 +2,3 @@
 build
 node_modules
 config/local.json
-client/pages.jsx

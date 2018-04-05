@@ -1,22 +1,20 @@
 {
   "name": "farpoint",
   "version": "0.0.1",
-  "description": "Testing for real-time collaboration",
+  "description": "Real-time collaborative asteroids",
   "main": "server/index.js",
   "scripts": {
-    "test": "ava -s -v",
+    "test": "tape tests/**/*.test.js | tap-spec",
     "lint": "eslint --fix **/*.{js,jsx}",
     "lint:dry": "eslint **/*.{js,jsx}",
-    "test:dev": "ava -w",
-    "dev": "node scripts/dev.js",
-    "build": "node scripts/build.js",
-    "prod": "cross-env NODE_ENV=production && npm run build",
+    "test:dev": "tape-watch tests/**/*.test.js | tap-spec",
+    "test:jsx": "tape -r babel-register tests/**/*.test.{js,jsx} | tap-spec",
+    "dev": "node scripts/dev.script.js",
+    "build": "node scripts/build.script.js",
+    "prod": "cross-env NODE_ENV=production && npm run build && npm run start",
     "postinstall": "npm run build",
-    "start": "node server/server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/willdavidc/farpoint.git"
+    "start": "node app.js",
+    "todo": "fixme -i build/** -i node_modules/** **/*.{js,jsx,less}"
   },
   "author": "Will Clark",
   "license": "Apache-2.0",
@@ -24,18 +22,46 @@
     "url": "https://github.com/willdavidc/farpoint/issues"
   },
   "homepage": "https://github.com/willdavidc/farpoint#readme",
+  "eslintIgnore": [
+    "build"
+  ],
+  "babel": {
+    "only": [
+      "*.jsx"
+    ],
+    "presets": [
+      "stage-3",
+      "react"
+    ]
+  },
+  "engines": {
+    "node": "^6.3.0",
+    "npm": "^5.3.0"
+  },
   "dependencies": {
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "classnames": "^2.2.5",
     "compression": "^1.7.2",
     "create-react-class": "^15.6.3",
     "express": "^4.16.3",
     "lodash": "^4.17.5",
-    "nconf": "^0.8.5",
+    "nconf": "^0.10.0",
     "pico-router": "^2.1.0",
     "pixi.js": "^4.7.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "vitreum": "^4.10.1"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
+    "fixme": "^0.4.5",
+    "react-test-renderer": "^16.3.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0",
+    "tape-watch": "^2.3.0"
   }
 }

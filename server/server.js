@@ -1,27 +1,15 @@
-const _           = require('lodash');
-const config      = require('nconf');
-const compression = require('compression');
 const express     = require('express');
 const app         = express();
+const compression = require('compression');
+
 app.use(compression());
-app.use(express.static(`${__dirname}/../build`));
+app.use(express.static('./build'));
+app.enable('trust proxy');
 
-config.argv()
-    .env({ lowerCase: true })
-    .file('environment', { file: `config/${process.env.NODE_ENV}.json` })
-    .file('defaults', { file: 'config/default.json' });
+app.use(require('./page.router.js'));
 
-const pageTemplate = require('./page.template.js');
-const render = require('vitreum/steps/render');
-
-app.get('*', (req, res) => {
-    render('main', pageTemplate, {
-        url: req.url
-    })
-        .then((page) => res.send(page))
-        .catch((err) => console.log(err));
+app.all('*', (req, res) => {
+	res.status(404).send('Oh no.');
 });
 
-const PORT = config.get('port');
-app.listen(PORT);
-console.log(`server on port:${PORT}`);
+module.exports = app;
