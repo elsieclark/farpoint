@@ -2,7 +2,7 @@
   "name": "farpoint",
   "version": "0.0.1",
   "description": "Real-time collaborative asteroids",
-  "main": "server/index.js",
+  "main": "app.js",
   "scripts": {
     "test": "tape tests/**/*.test.js | tap-spec",
     "lint": "eslint --fix **/*.{js,jsx}",
