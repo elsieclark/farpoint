@@ -4,18 +4,15 @@ const createRouter = require('pico-router').createRouter;
 const Link         = require('pico-router').Link;
 const React        = require('react');
 
-const HomePage   = require('./homepage/homepage.jsx');
-const OtherPage  = require('./otherpage/otherpage.jsx');
+const GamePage   = require('./gamepage/gamepage.jsx');
 const FourOhFour = require('./fourohfour/fourohfour.jsx');
 
 const TopBar   = require('../shared/topbar/topbar.jsx');
-const MainPage = require('../shared/mainpage/mainpage.jsx');
 const LowBar   = require('../shared/lowbar/lowbar.jsx');
 
 const Router = createRouter({
-	'/': <MainPage><HomePage /></MainPage>,
-    '/other': <HomePage />,
-    '/*': <MainPage><FourOhFour /></MainPage>
+	'/': <GamePage />,
+    '/*': <FourOhFour />
 });
 
 const navBarLinks = [
@@ -24,13 +21,9 @@ const navBarLinks = [
         link: '/',
     },
     {
-        name: 'Projects',
-        link: '/projects',
-    },
-    {
-        name: 'Résumé',
-        link: '/résumé'
-    },
+        name: 'About',
+        link: '/about'
+    }
 ];
 
 const Main = createClass({
@@ -42,7 +35,7 @@ const Main = createClass({
 	render : function(){
 		return <div className='main'>
             <TopBar pages={navBarLinks} />
-			<Router defaultUrl={this.props.url} />
+			<Router defaultUrl={this.props.url} className='router' />
             <LowBar />
 		</div>
 	}
