@@ -11,7 +11,7 @@ const TopBar   = require('../shared/topbar/topbar.jsx');
 const LowBar   = require('../shared/lowbar/lowbar.jsx');
 
 const Router = createRouter({
-	'/': <GamePage />,
+    '/': <GamePage />,
     '/*': <FourOhFour />
 });
 
@@ -27,18 +27,18 @@ const navBarLinks = [
 ];
 
 const Main = createClass({
-	getDefaultProps : function(){
-		return {
+    getDefaultProps: function() {
+        return {
             url: '/'
-		};
-	},
-	render : function(){
-		return <div className='main'>
+        };
+    },
+    render: function() {
+        return <div className='main'>
             <TopBar pages={navBarLinks} />
-			<Router defaultUrl={this.props.url} className='router' />
+            <Router defaultUrl={this.props.url} className='router' />
             <LowBar />
-		</div>
-	}
+        </div>;
+    }
 });
 
 module.exports = Main;

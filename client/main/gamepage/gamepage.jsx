@@ -4,26 +4,26 @@ const React       = require('react');
 
 
 const GamePage = createClass({
-    getDefaultProps: function(){
+    getDefaultProps: function() {
         return {
 
         };
     },
-    
+
     getInitialState: function() {
         return {
             context: {},
-        }
+        };
     },
-    
+
     componentDidMount: function() {
-        
+
     },
-    
-    render : function(){
+
+    render: function() {
         return <div className='gamepage'>
-                <canvas className='gamecanvas'></canvas>
-            </div>
+            <canvas className='gamecanvas'></canvas>
+        </div>;
     }
 });
 

@@ -5,11 +5,11 @@ const React       = require('react');
 const Link        = require('pico-router').Link;
 
 const TopBar = createClass({
-        getDefaultProps: function() {
-                return {
+    getDefaultProps: function() {
+        return {
             pages: [],
-                };
-        },
+        };
+    },
     getInitialState: function() {
         return {
             currentPage: '/'
@@ -20,31 +20,31 @@ const TopBar = createClass({
             currentPage: decodeURI(e.currentTarget.href.split(window.location.origin)[1])
         });
     },
-    
+
     componentDidMount: function() {
         this.setState({
             currentPage: decodeURI(window.location.href.split(window.location.origin)[1])
         });
     },
-    
+
     renderPageLinks: function() {
         return _.map(this.props.pages, (page) => {
             return <Link className={cx('pageLink', { activePage: this.state.currentPage === page.link })} href={`${page.link}`} onClick={this.getCurrentPage}>
                 {page.name}
-            </Link>
+            </Link>;
         });
     },
-    
-        render: function() {
-                return <div className='topbar'>
+
+    render: function() {
+        return <div className='topbar'>
             <Link href='/' onClick={this.getCurrentPage}>
                 <h3 className='siteName'>FARPOINT</h3>
             </Link>
-                        <nav className='pageLinkList'>
+            <nav className='pageLinkList'>
                 {this.renderPageLinks()}
-                        </nav>
-                </div>;
-        }
+            </nav>
+        </div>;
+    }
 });
 
 module.exports = TopBar;
