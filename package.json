@@ -27,14 +27,15 @@
   "dependencies": {
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.5",
-    "compression": "^1.7.1",
+    "compression": "^1.7.2",
     "create-react-class": "^15.6.3",
-    "express": "^4.16.2",
-    "lodash": "^4.17.4",
+    "express": "^4.16.3",
+    "lodash": "^4.17.5",
     "nconf": "^0.8.5",
     "pico-router": "^2.1.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "pixi.js": "^4.7.3",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "vitreum": "^4.10.1"
   }
 }
