@@ -1,5 +1,5 @@
-module.exports = (vitreum)=>{
-	return `<!-- Doctype HTML5 -->
+module.exports = (vitreum) => {
+    return `<!-- Doctype HTML5 -->
 <!DOCTYPE html>
 <html lang='en'>
 <head>
