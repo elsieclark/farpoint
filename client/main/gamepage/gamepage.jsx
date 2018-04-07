@@ -32,6 +32,7 @@ const GamePage = createClass({
 
     render: function() {
         return <div className='gamepage'>
+            Hello!
         </div>;
     }
 });

@@ -8,7 +8,7 @@ const LowBar = createClass({
     render: function() {
         return (
             <div className='bottombar'>
-                <p className='copyright'><span>©</span> 2017 - Will Clark</p>
+                <p className='copyright'><span>©</span> 2018 - Will Clark</p>
             </div>
         );
     },

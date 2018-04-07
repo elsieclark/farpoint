@@ -7,12 +7,12 @@ const PicoRouter  = require('pico-router');
 const {TopBar, LowBar} = require('shared/components');
 
 const Pages = {
-	Home : require('./gamepage/gamepage.jsx'),
+	Game : require('./gamepage/gamepage.jsx'),
 };
 
 const navBarLinks = [
     {
-        name: 'Home',
+        name: 'Game',
         link: '/',
     },
     {
@@ -31,7 +31,7 @@ const Main = createClass({
 	componentWillMount : function(){
 		config.set(this.props.config);
 		this.Router = PicoRouter.createRouter({
-			'/' : <Pages.Home />,
+			'/' : <Pages.Game />,
 			'*' : <div>Not Found</div>
 		});
 	},

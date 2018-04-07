@@ -14,7 +14,7 @@ module.exports = (vitreum) => {
 	${vitreum.head}
 </head>
 <body>
-	<main id='reactRoot'>${vitreum.body}</main>
+	<main id='reactRoot'  style='height:100%;'>${vitreum.body}</main>
 </body>
 	${vitreum.js}
 </html>`;
