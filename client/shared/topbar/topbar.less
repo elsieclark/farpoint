@@ -13,14 +13,18 @@
     a:hover, a:visited, a:link, a:active {
         text-decoration: none;
     }
+    a {
+        margin: 0;
+        padding: 0;
+    }
     .siteName {
+        height: 100%;
         color: @navy;
-        font-family: 'Ubuntu';
+        font-family: 'Ubuntu', sans-serif;
         font-size: 24px;
-        margin-left: 6px;
+        margin: 0 0 0 6px;
         font-weight: 400;
         flex-grow: 0;
-        margin-right: 30px;
         letter-spacing: 4px;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -49,11 +53,11 @@
             &:visited {
                 color: @navy;
             }
-            &:hover {
+            &.activePage {
                 background-color: @navy;
                 color: @white;
             }
-            &.activePage {
+            &:hover {
                 background-color: @navy;
                 color: @white;
             }
