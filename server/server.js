@@ -4,6 +4,7 @@ const compression = require('compression');
 
 app.use(compression());
 app.use(express.static('./build'));
+app.use(express.static('./game'));
 app.enable('trust proxy');
 
 app.use(require('./page.router.js'));
